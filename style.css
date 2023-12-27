@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: cursive;
+}
+
+.background {
+  background: url(https://wallpapers.com/images/hd/dark-green-aesthetic-1920-x-1080-background-c591o88kv7mfwbjj.jpg);
+  background-position: center;
+  min-height: 100vh; /* Ensure background covers the whole viewport */
+  background-color: rgba(255, 255, 255, 0.1);
+  background-size: cover;
+  height: 100vh;
+  padding-top: 1px;
+  padding-bottom: 5px;
+}
+
+.title {
+  color: rgb(167, 255, 254);
+  text-align: center;
+  font-size: 40px;
+  margin-top: 1%;
+}
+header {
+  background-image: url(images/spotifybg.png);
+  background-position: center;
+  background-size: cover;
+  color: rgb(6, 11, 70);
+  padding: 20px;
+  text-align: center;
+}
+.display {
+  color: rgb(248, 219, 255);
+  font-size: 25px;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+nav {
+  background-color: rgb(3, 43, 20);
+  background-position: center;
+  background-size: cover; /* A darker shade of blue for the navigation background */
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+}
+iframe {
+  width: 300px;
+  height: 380px;
+  margin: 10px;
+}
+.hide {
+  display: none;
+}
+#spotify {
+  background-image: url(images/spotifybg.png);
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  max-width: 300px;
+}
+
+.tile {
+  border: 1px solid rgb(253, 255, 181);
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.playerX {
+  color: #fbff00;
+}
+
+.playerO {
+  color: #ffffff;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.controls button {
+  color: rgb(3, 9, 51);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.restart {
+  background-color: #498afb;
+}
+
+#reset {
+  background-color: #d0fffa;
+}

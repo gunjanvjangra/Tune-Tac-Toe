@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const announcer = document.querySelector(".announcer");
 
   let board = ["", "", "", "", "", "", "", "", ""];
-  let currentPlayer = "O";
+  let currentPlayer = "O"; // Human player starts
   let isGameActive = true;
 
   const PLAYERX_WON = "PLAYERX_WON";
@@ -65,11 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   const isValidAction = (tile) => {
-    if (tile.innerText === "X" || tile.innerText === "O") {
-      return false;
-    }
-
-    return true;
+    return tile.innerText === "" && isGameActive;
   };
 
   const updateBoard = (index) => {
@@ -81,10 +77,15 @@ window.addEventListener("DOMContentLoaded", () => {
     currentPlayer = currentPlayer === "O" ? "X" : "O";
     playerDisplay.innerText = currentPlayer;
     playerDisplay.classList.add(`player${currentPlayer}`);
+
+    if (currentPlayer === "X" && isGameActive) {
+      // Computer's turn
+      setTimeout(() => computerTurn(), 500);
+    }
   };
 
   const userAction = (tile, index) => {
-    if (isValidAction(tile) && isGameActive) {
+    if (isValidAction(tile)) {
       tile.innerText = currentPlayer;
       tile.classList.add(`player${currentPlayer}`);
       updateBoard(index);
@@ -93,12 +94,27 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const computerTurn = () => {
+    // Get empty tiles
+    const emptyTiles = tiles.filter((tile) => tile.innerText === "");
+    if (emptyTiles.length > 0) {
+      // Randomly select an empty tile for the computer's move
+      const randomIndex = Math.floor(Math.random() * emptyTiles.length);
+      const computerTile = emptyTiles[randomIndex];
+      const computerIndex = tiles.indexOf(computerTile);
+
+      // Simulate the computer's click after a delay
+      setTimeout(() => userAction(computerTile, computerIndex), 500);
+    }
+  };
+
   const resetBoard = () => {
     board = ["", "", "", "", "", "", "", "", ""];
     isGameActive = true;
     announcer.classList.add("hide");
 
-    if (currentPlayer === "X") {
+    if (currentPlayer === "O") {
+      // If the last game ended with the computer's move, start with human player
       changePlayer();
     }
 

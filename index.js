@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const announcer = document.querySelector(".announcer");
 
   let board = ["", "", "", "", "", "", "", "", ""];
-  let currentPlayer = "O";
+  let currentPlayer = "O"; // Human player starts
   let isGameActive = true;
 
   const PLAYERX_WON = "PLAYERX_WON";
@@ -109,8 +109,11 @@ window.addEventListener("DOMContentLoaded", () => {
     isGameActive = true;
     announcer.classList.add("hide");
 
-    if (currentPlayer === "O") {
-      changePlayer();
+    currentPlayer = currentPlayer === "O" ? "X" : "O";
+    playerDisplay.innerText = currentPlayer;
+
+    if (currentPlayer === "X" && isGameActive) {
+      setTimeout(() => computerTurn(), 500);
     }
 
     tiles.forEach((tile) => {
